@@ -5,7 +5,7 @@
       <v-btn class="navbar-btn" plain @click="signup">signup</v-btn>
       <v-btn class="navbar-btn" plain @click="login">login</v-btn>
     </nav>
-    <router-view/>
+    <router-view style="height: calc(100vh - 70px);"/>
   </div>
 </template>
 
@@ -28,7 +28,12 @@ export default {
 
 <style>
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+}
+body{
+  background-color: #BDBDBD;
 }
 .navbar{
   background-color: #424242;
@@ -41,15 +46,12 @@ export default {
   background-color: inherit !important;
   color: #FAFAFA !important;
   margin: auto 10px;
-  font-size: 1.1em !important;
+  font-size: 1em !important;
 }
 .title{
-  font-size: 3em;
+  font-size: 2.369em;
   margin: auto 10px ;
   color: #ffffff;
   cursor: pointer;
-}
-body{
-  background-color: #BDBDBD;
 }
 </style>
