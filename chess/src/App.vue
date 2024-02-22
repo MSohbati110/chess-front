@@ -2,9 +2,7 @@
   <div>
     <nav class="navbar">
       <h1 class="title" @click="landingPage">chess</h1>
-      <!-- <v-btn class="signin-btn" plain @click="signin">sign in</v-btn> -->
-      <v-btn class="navbar-btn" plain @click="signup">signup</v-btn>
-      <v-btn class="navbar-btn" plain @click="login">login</v-btn>
+      <v-btn class="signin-btn" plain @click="signin">sign in</v-btn>
     </nav>
     <router-view/>
   </div>
@@ -17,10 +15,7 @@ export default {
     landingPage() {
       this.$router.push('/').catch(()=>{});
     },
-    signup() {
-      this.$router.push('/signup').catch(()=>{});
-    },
-    login() {
+    signin() {
       this.$router.push('/login').catch(()=>{});
     }
   }
@@ -39,9 +34,8 @@ body{
 .navbar{
   background-color: #424242;
   height: 70px;
+  /* max-height: 70px; */
   display: flex;
-  /* text-align: center; */
-  /* justify-content: left; */
 }
 .navbar-btn{
   background-color: inherit !important;
@@ -50,9 +44,11 @@ body{
   font-size: 1em !important;
 }
 .signin-btn{
+  position: absolute;
   background-color: inherit !important;
   color: #2d91cf !important;
-  margin: auto 10px;
+  right: 5px;
+  top: 15px;
   font-size: 1em !important;
 }
 .title{

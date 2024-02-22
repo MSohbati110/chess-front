@@ -1,8 +1,8 @@
 <template>
   <div class="page">
     <div class="register">
-      <h2>Register</h2>
-      <p style="margin-top: 40px;">username</p>
+      <h2 style="margin-bottom: 40px;">Register</h2>
+      <p>username</p>
       <input
         type="text"
         class="textField"
@@ -117,6 +117,9 @@ export default {
           this.$refs.agreement1.classList.remove('animation')
         }, 1000);
       }
+
+      // check if username or email already exists
+      // TODO
 
       // final result
       if (validate)
