@@ -2,10 +2,11 @@
   <div>
     <nav class="navbar">
       <h1 class="title" @click="landingPage">chess</h1>
+      <!-- <v-btn class="signin-btn" plain @click="signin">sign in</v-btn> -->
       <v-btn class="navbar-btn" plain @click="signup">signup</v-btn>
       <v-btn class="navbar-btn" plain @click="login">login</v-btn>
     </nav>
-    <router-view style="height: calc(100vh - 70px);"/>
+    <router-view/>
   </div>
 </template>
 
@@ -45,6 +46,12 @@ body{
 .navbar-btn{
   background-color: inherit !important;
   color: #FAFAFA !important;
+  margin: auto 10px;
+  font-size: 1em !important;
+}
+.signin-btn{
+  background-color: inherit !important;
+  color: #2d91cf !important;
   margin: auto 10px;
   font-size: 1em !important;
 }

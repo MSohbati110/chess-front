@@ -30,7 +30,7 @@
 
       <div>
         <v-icon size="60" :color="checkBoxColor" @click="checkBoxClick">{{ checkBoxIcon }}</v-icon>
-        <p class="agreements" @click="checkBoxClick">I agree that I will always be nice to other players.</p>
+        <p class="agreements" ref="agreement1" @click="checkBoxClick">I agree that I will always be nice to other players.</p>
       </div>
 
       <v-btn class="btn" @click="submit">REGISTER</v-btn>
@@ -110,12 +110,17 @@ export default {
       }
 
       // validate agreements
-      if (!this.checkBoxValue)
+      if (!this.checkBoxValue){
         validate = false
+        this.$refs.agreement1.classList.add('animation')
+        setTimeout(() => {
+          this.$refs.agreement1.classList.remove('animation')
+        }, 1000);
+      }
 
       // final result
       if (validate)
-        console.log('ok');
+        alert('ok');
     }
   }
 }
@@ -133,7 +138,6 @@ export default {
   height: 100%;
   background-color: #9E9E9E;
   padding: 40px;
-
 }
 h2{
   color: #333333;
@@ -152,7 +156,7 @@ p{
   font-size: 0.75em;
   opacity: 0.62;
   position: relative;
-  top: -4%;
+  top: -25px;
 }
 .textField{
   margin: 0;
@@ -174,15 +178,25 @@ p{
 .agreements{
   font-weight: 300;
   font-size: 0.9em;
-  display: inline;
+  display: inline-block;
   cursor: pointer;
+}
+.animation{
+  animation: shake 0.8s;
 }
 .fieldError{
   display: block;
   font-size: 0.75em;
   /* opacity: 0.62; */
   position: relative;
-  top: -4%;
+  top: -25px;
   color: #C62828;
+}
+
+@keyframes shake{
+  0%{ transform: translateX(0); } 
+  25%{ transform: translateX(25px); } 
+  50%{ transform: translateX(-25px); } 
+  100%{ transform: translateX(0px); }
 }
 </style>
