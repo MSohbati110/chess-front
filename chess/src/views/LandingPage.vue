@@ -7,5 +7,8 @@
 <script>
 export default {
   name: 'LandingPage',
+  mounted() {
+    this.$emit('update-navbar')
+  }
 }
 </script>

@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import api from '@/api'
+
 export default {
   name: 'Signup',
   data() {
@@ -78,7 +80,7 @@ export default {
       }
       return false
     },
-    submit() {
+    async submit() {
       let validate = true
 
       // check if empty
@@ -119,11 +121,15 @@ export default {
       }
 
       // check if username or email already exists
-      // TODO
-
-      // final result
-      if (validate)
-        alert('ok');
+      if (validate) {
+        await api.auth.register(this.user).then((response) => {
+          localStorage.setItem('username', this.user.username)
+          localStorage.setItem('token', response.data)
+          this.$router.push('/')
+        }).catch((error) => {
+          this.errorMessages[error.response.data.type] = error.response.data.text
+        })
+      }
     }
   }
 }
@@ -137,7 +143,7 @@ export default {
   /* text-align: center; */
 }
 .register{
-  width: 40%;
+  width: 44%;
   height: 100%;
   background-color: #9E9E9E;
   padding: 40px;

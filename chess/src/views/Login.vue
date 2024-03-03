@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import api from '@/api'
+
 export default {
   name: 'Login',
   data() {
@@ -45,11 +47,12 @@ export default {
         password: ''
       },
       errorShow: false,
-      checkBoxValue: false
+      checkBoxValue: false,
+      token: 'invalid',
     }
   },
   methods: {
-    submit() {
+    async submit() {
       let validate = true
 
       // check if empty
@@ -68,11 +71,23 @@ export default {
       })
 
       // check if username exists & username and password match
-      // this.errorShow = true
-      // TODO
+      if (validate) {
+        await api.auth.login(this.user).then((response) => {
+          this.errorShow = false
+          this.token = response.data.access
+        }).catch((error) => {
+          this.errorShow = true
+          validate = false
+        })
+      }
+      else
+        this.errorShow = false
 
-      if (validate)
-        alert('ok');
+      if (validate) {
+        localStorage.setItem('username', this.user.username)
+        localStorage.setItem('token', this.token)
+        this.$router.push('/')
+      }
     },
     register() {
       this.$router.push('/signup')
