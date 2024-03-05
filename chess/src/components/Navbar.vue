@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import api from '@/api'
+
 export default{
   name: 'navbar',
   data() {
@@ -92,13 +94,15 @@ export default{
       }
     }
   },
-  mounted() {
+  async mounted() {
     this.username = localStorage.getItem('username')
     this.token = localStorage.getItem('token')
 
-    if (this.token != 'invalid') {
+    await api.auth.tokenVerify({token: this.token}).then((response) => {
       this.isLoggedIn = true
-    }
+    }).catch((error) => {
+      this.isLoggedIn = false
+    })
   },
   methods: {
     landingPage() {
