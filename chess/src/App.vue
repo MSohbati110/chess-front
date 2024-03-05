@@ -30,6 +30,8 @@ export default {
   font-weight: 500;
   font-size: 22px;
   --white: #efefef;
+  --navbar-height:60px;
+  --opacity-level: 0.62;
 }
 body{
   background-color: #BDBDBD;

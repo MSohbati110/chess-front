@@ -104,6 +104,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: calc(100vh - var(--navbar-height));
 }
 .login{
   width: 30%;
@@ -117,8 +118,8 @@ h2{
   font-size: 2.369em;
 }
 .subText{
-  font-size: 0.75em;
-  opacity: 0.62;
+  font-size: 0.65em;
+  opacity: var(--opacity-level);
   position: relative;
   top: -25px;
 }
@@ -127,7 +128,7 @@ h2{
   margin-bottom: 25px;
   padding: 5px;
   width: 100%;
-  height: 50px;
+  height: 40px;
   border: 2px solid #333333;
   border-radius: 5px;
 }
@@ -139,7 +140,6 @@ h2{
 .fieldError{
   display: block;
   font-size: 0.75em;
-  /* opacity: 0.62; */
   position: relative;
   top: -25px;
   color: #C62828;

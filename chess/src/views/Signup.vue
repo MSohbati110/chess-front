@@ -143,7 +143,7 @@ export default {
   /* text-align: center; */
 }
 .register{
-  width: 44%;
+  width: 40%;
   height: 100%;
   background-color: #9E9E9E;
   padding: 40px;
@@ -162,8 +162,8 @@ p{
   margin-top: 30px;
 }
 .subText{
-  font-size: 0.75em;
-  opacity: 0.62;
+  font-size: 0.65em;
+  opacity: var(--opacity-level);
   position: relative;
   top: -25px;
 }
@@ -172,7 +172,7 @@ p{
   margin-bottom: 5%;
   padding: 5px;
   width: 100%;
-  height: 50px;
+  height: 40px;
   border: 2px solid #333333;
   border-radius: 5px;
 }
@@ -186,7 +186,7 @@ p{
 }
 .agreements{
   font-weight: 300;
-  font-size: 0.9em;
+  font-size: 0.8em;
   display: inline-block;
   cursor: pointer;
 }
@@ -196,7 +196,6 @@ p{
 .fieldError{
   display: block;
   font-size: 0.75em;
-  /* opacity: 0.62; */
   position: relative;
   top: -25px;
   color: #C62828;
