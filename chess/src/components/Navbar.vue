@@ -141,8 +141,11 @@ export default{
 </script>
 
 <style scoped>
+*{
+  --list-color: #414141;
+}
 .navbar{
-  background-color: #424242;
+  background-color: #262421;
   height: var(--navbar-height);
   display: flex;
 }
@@ -180,7 +183,7 @@ export default{
   color: #2d91cf;
 }
 .list{
-  background-color: #616161;
+  background-color: var(--list-color);
   width: 180px;
   padding: 4px 0;
 }
@@ -196,7 +199,7 @@ export default{
   background-color: #689F38;
 }
 .list-left-border{
-  background-color: #616161;
+  background-color: var(--list-color);
   width: 150px;
   padding: 4px 0;
   border-left: 3px solid #2d91cf;
@@ -215,12 +218,13 @@ export default{
   opacity: 1;
 }
 .v-menu__content{
-  box-shadow: none;
+  /* box-shadow: none; */
+  box-shadow: 0px 5px 0px -3px rgba(0, 0, 0, 0.2), 0px 8px 0px 0px rgba(0, 0, 0, 0.14), 0px 3px 0px 2px rgba(0, 0, 0, 0.12);
   border-radius: 0;
   border-top: none;
 }
 .clicked{
-  background-color: #616161 !important;
+  background-color: var(--list-color) !important;
   opacity: 1;
   height: var(--navbar-height);
 }
@@ -246,7 +250,7 @@ export default{
 .navbar-btn:hover{
   opacity: 1;
   cursor: pointer;
-  background-color: #616161 !important;
+  background-color: var(--list-color) !important;
   border-left: 3px solid #2d91cf;
   padding-left: 7px;
 }

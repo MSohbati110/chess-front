@@ -34,6 +34,7 @@ export default {
   --opacity-level: 0.62;
 }
 body{
-  background-color: #BDBDBD;
+  background-color: #353535;
+  /* background-color: #bdbdbd; */
 }
 </style>
