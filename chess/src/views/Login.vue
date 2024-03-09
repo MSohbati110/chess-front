@@ -145,7 +145,7 @@ h2{
   color: #C62828;
 }
 .submit-btn{
-  background-color: #2d91cf !important;
+  background-color: var(--blue) !important;
   width: 100%;
   margin-top: 30px;
 }

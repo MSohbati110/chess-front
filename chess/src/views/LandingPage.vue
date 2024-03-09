@@ -168,7 +168,7 @@ export default {
   /* margin: 5px 0px; */
 }
 .left-btn:hover{
-  color: #2d91cf !important;
+  color: var(--blue) !important;
 }
 .left-btn div{
   display: flex;
@@ -199,12 +199,12 @@ export default {
 }
 .game-panel-headers:hover{
   cursor: pointer;
-  border-bottom: 2px solid #D32F2F;
+  border-bottom: 2px solid var(--red);
   color: #bdbdbd;
 }
 .game-panel-headers-clicked{
-  border-bottom: 2px solid #D32F2F;
-  color: #D32F2F !important;
+  border-bottom: 2px solid var(--red);
+  color: var(--red) !important;
 }
 .game-panel-top{
   display: flex;

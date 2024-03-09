@@ -151,7 +151,7 @@ export default{
 }
 .signin-btn{
   position: absolute;
-  color: #2d91cf !important;
+  color: var(--blue) !important;
   right: 0px;
   padding: calc(var(--navbar-height)/2 - 15px) 15px;
   font-size: 0.9em !important;
@@ -180,7 +180,7 @@ export default{
   cursor: pointer;
 }
 .title:hover{
-  color: #2d91cf;
+  color: var(--blue);
 }
 .list{
   background-color: var(--list-color);
@@ -202,7 +202,7 @@ export default{
   background-color: var(--list-color);
   width: 150px;
   padding: 4px 0;
-  border-left: 3px solid #2d91cf;
+  border-left: 3px solid var(--blue);
 }
 .list-left-border-item{
   cursor: pointer;
@@ -214,7 +214,7 @@ export default{
   opacity: 0.8;
 }
 .list-left-border-item:hover{
-  background-color: #2d91cf;
+  background-color: var(--blue);
   opacity: 1;
 }
 .v-menu__content{
@@ -237,7 +237,7 @@ export default{
   font-weight: 400;
 }
 .sign-out:hover{
-  background-color: #D32F2F;
+  background-color: var(--red);
 }
 .navbar-btn{
   color: var(--white) !important;
@@ -251,7 +251,7 @@ export default{
   opacity: 1;
   cursor: pointer;
   background-color: var(--list-color) !important;
-  border-left: 3px solid #2d91cf;
+  border-left: 3px solid var(--blue);
   padding-left: 7px;
 }
 .navbar-btn p{
@@ -265,6 +265,6 @@ export default{
 }
 .donate:hover{
   cursor: pointer;
-  color: #2d91cf !important;
+  color: var(--blue) !important;
 }
 </style>

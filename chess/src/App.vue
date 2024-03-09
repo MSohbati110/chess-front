@@ -30,6 +30,8 @@ export default {
   font-weight: 500;
   font-size: 22px;
   --white: #efefef;
+  --blue: #2d91cf;
+  --red: #D32F2F;
   --navbar-height:60px;
   --opacity-level: 0.62;
 }
