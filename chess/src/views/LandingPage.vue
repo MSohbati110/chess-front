@@ -18,12 +18,13 @@
       </div>
       <div class="game-panel-main">
         <div v-for="i in [0,1,2,3]" class="game-panel-row">
-          <div v-for="j in [0,1,2]" class="game-panel-items">
-            <p class="game-panel-items-time">{{ gamePanelItems[i][j].time }}</p>
-            <p class="game-panel-items-type">{{ gamePanelItems[i][j].type }}</p>
-            <div class="game-panel-items-custom">
-              <p v-if="i*j == 6" class="game-panel-items-type">Custom</p>
+          <div v-for="j in [0,1,2]" class="game-panel-items" @click="gamePanelItemClick(i,j)" :ref="'panel-item-' + (3*i + j)">
+            <p class="game-panel-items-time" :ref="'panel-item-time-' + (3*i + j)">{{ gamePanelItems[i][j].time }}</p>
+            <p class="game-panel-items-type" :ref="'panel-item-type-' + (3*i + j)">{{ gamePanelItems[i][j].type }}</p>
+            <div class="game-panel-items-custom" v-if="i*j == 6">
+              <p class="game-panel-items-type">Custom</p>
             </div>
+            <v-progress-circular size="40" class="game-panel-items-progress" :ref="'panel-item-progress-' + (3*i + j)"></v-progress-circular>
           </div>
         </div>
       </div>
@@ -37,6 +38,8 @@
 </template>
 
 <script>
+import api from '@/api'
+
 export default {
   name: 'LandingPage',
   data() {
@@ -49,7 +52,8 @@ export default {
       leftBtnList: [
         {icon: 'mdi-shield', text1: 'Blitz Shield Arena', text2: 'Battle for the Blitz Shield', text3: '121 players • ', text4: 'in 3 hours'},
         {icon: 'mdi-chess-bishop', text1: 'Chess960 Titled Arena', text2: 'Titled only, $1,000 prize pool', text3: '43 players • ', text4: 'in 8 hours'},
-        {icon: 'mdi-fire', text1: 'SuperBlitz Swiss', text2: '', text3: '16 players • ', text4: '43 minutes ago'}]
+        {icon: 'mdi-fire', text1: 'SuperBlitz Swiss', text2: '', text3: '16 players • ', text4: '43 minutes ago'}],
+      panelItemClicked: [[false,false,false],[false,false,false],[false,false,false],[false,false,false]],
     }
   },
   mounted() {
@@ -68,6 +72,39 @@ export default {
           this.$refs[ref].classList.remove('game-panel-headers-clicked')
         }
       }
+    },
+    gamePanelItemClick(i, j) {
+      let panelNumber = 3*i + j
+      
+      if (panelNumber == 11) {
+        // todo
+        // custom
+      }
+      if (panelNumber != 11) {
+        if (this.panelItemClicked[i][j]) {
+          this.$refs['panel-item-' + panelNumber][0].classList.remove('game-panel-items-clicked')
+          this.$refs['panel-item-time-' + panelNumber][0].classList.remove('game-panel-items-time-clicked')
+          this.$refs['panel-item-type-' + panelNumber][0].classList.remove('game-panel-items-type-clicked')
+          this.$refs['panel-item-progress-' + panelNumber][0].$el.classList.remove('game-panel-items-progress-clicked')
+          this.$refs['panel-item-progress-' + panelNumber][0].$el.classList.remove('v-progress-circular--indeterminate')
+        }
+        else {
+          this.$refs['panel-item-' + panelNumber][0].classList.add('game-panel-items-clicked')
+          this.$refs['panel-item-time-' + panelNumber][0].classList.add('game-panel-items-time-clicked')
+          this.$refs['panel-item-type-' + panelNumber][0].classList.add('game-panel-items-type-clicked')
+          this.$refs['panel-item-progress-' + panelNumber][0].$el.classList.add('game-panel-items-progress-clicked')
+          this.$refs['panel-item-progress-' + panelNumber][0].$el.classList.add('v-progress-circular--indeterminate')
+        }
+
+        let tmp = this.gamePanelItems[i][j].time.split('+')
+        api.game.gamepool({minutes: tmp[0], increment: tmp[1], player: localStorage.getItem('username')}).then((response) => {
+          console.log(response);
+        }).catch((error) => {
+          console.log(error);
+        })
+      }
+
+      this.panelItemClicked[i][j] = !this.panelItemClicked[i][j]
     }
   }
 }
@@ -109,17 +146,34 @@ export default {
   cursor: pointer;
   background-color: #916036;
 }
+.game-panel-items-clicked{
+  background-color: #916036;
+  padding-top: 5px;
+}
 .game-panel-items-time{
   font-size: 1.65em;
   line-height: 1.5em;
   color: var(--text-color);
   font-weight: 300;
 }
+.game-panel-items-time-clicked{
+  font-size: 1.8em;
+}
 .game-panel-items-type{
   font-size: 1.15em;
   color: var(--text-color);
   font-weight: 300;
   margin: auto 0px;
+}
+.game-panel-items-type-clicked{
+  display: none;
+}
+.game-panel-items-progress{
+  color: #1E88E5;
+  visibility: hidden;
+}
+.game-panel-items-progress-clicked{
+  visibility: visible;
 }
 .game-panel-items-custom{
   display: flex;

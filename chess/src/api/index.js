@@ -27,5 +27,14 @@ export default{
         data: user
       })
     }
+  },
+  game: {
+    gamepool(data) {
+      return axios({
+        method: 'post',
+        url: `${base_url}/api/gamepool/`,
+        data: data
+      })
+    }
   }
 }

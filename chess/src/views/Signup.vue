@@ -144,11 +144,11 @@ export default {
 .register{
   width: 40%;
   height: 100%;
-  background-color: #9E9E9E;
+  background-color: var(--bgcolor1);
   padding: 40px;
 }
 h2{
-  color: #333333;
+  color: var(--black1);
   margin: 10px auto;
   font-size: 2.369em;
 }
@@ -172,7 +172,7 @@ p{
   padding: 5px;
   width: 100%;
   height: 40px;
-  border: 2px solid #333333;
+  border: 2px solid var(--black1);
   border-radius: 5px;
 }
 .textField:focus{
@@ -197,7 +197,7 @@ p{
   font-size: 0.75em;
   position: relative;
   top: -25px;
-  color: #C62828;
+  color: var(--red2);
 }
 
 @keyframes shake{

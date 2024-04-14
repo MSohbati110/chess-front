@@ -29,9 +29,12 @@ export default {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 22px;
+  --bgcolor1: #8E8E8E;
+  --black1: #333333;
   --white: #efefef;
   --blue: #2d91cf;
   --red: #D32F2F;
+  --red2: #C62828;
   --navbar-height:60px;
   --opacity-level: 0.62;
 }
